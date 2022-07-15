@@ -19,7 +19,13 @@ import { UserModule } from './user/user.module';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE,
       entities: entities,
-      synchronize: false,
+      synchronize: true,
+      ssl: true,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
+      },
     }),
     UserModule,
   ],
